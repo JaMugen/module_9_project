@@ -1,5 +1,5 @@
-version: '3.8'
 
+# Christopher Gaudious 10/28/2025 3:32pm
 services:
   # Service: web
   web:
@@ -22,7 +22,7 @@ services:
 
   # Service: db (PostgreSQL)
   db:
-    image: postgres
+    image: postgres:15-alpine
     container_name: postgres_db
     environment:
       POSTGRES_USER: postgres
