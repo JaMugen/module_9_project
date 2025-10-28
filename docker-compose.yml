@@ -40,6 +40,7 @@ services:
     networks:
       - app-network
 
+
   # Service: pgadmin
   pgadmin:
     image: dpage/pgadmin4  # Updated to a newer version
