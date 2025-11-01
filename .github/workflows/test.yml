@@ -37,12 +37,14 @@ jobs:
             ${{ runner.os }}-pip-
       
       - name: Install dependencies
+        working-directory: ./  
         run: |
           python -m venv venv
           source venv/bin/activate
           pip install -r requirements.txt
           playwright install
       - name: Run tests
+        working-directory: ./  
         run: |
           source venv/bin/activate
           pytest tests/unit/ --cov=src --junitxml=test-results/junit.xml
