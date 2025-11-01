@@ -38,13 +38,15 @@ jobs:
       - name: Install dependencies
         run: |
           python -m venv venv
-          ./venv/bin/pip install -r requirements.txt
-          ./venv/bin/playwright install
+          source venv/bin/activate
+          pip install -r requirements.txt
+          playwright install
       - name: Run tests
         run: |
-          ./venv/bin/python -m pytest tests/unit/ --cov=src --junitxml=test-results/junit.xml
-          ./venv/bin/python -m pytest tests/integration/
-          ./venv/bin/python -m pytest tests/e2e/
+          source venv/bin/activate
+          pytest tests/unit/ --cov=src --junitxml=test-results/junit.xml
+          pytest tests/integration/
+          pytest tests/e2e/
   security:
     needs: test
     runs-on: ubuntu-latest
